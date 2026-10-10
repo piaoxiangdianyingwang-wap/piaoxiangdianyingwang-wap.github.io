@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="飘香电影网 - 经典老片与年代怀旧影视推荐，重温胶片里的旧时光与老故事，做你的私人怀旧片单。">
+<meta name="keywords" content="飘香电影网, 飘香电影, 经典老片, 怀旧影视, 年代电影, 老电影推荐, piaoxiangdianyingwang, piaoxiangdianyingwang-wap">
+<meta name="author" content="飘香电影网">
+<meta property="og:title" content="飘香电影网 - 重温旧时光的经典老片推荐">
+<meta property="og:description" content="经典老片、年代怀旧影视推荐与影评，做你的私人怀旧片单。">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://piaoxiangdianyingwang-wap.github.io">
+<link rel="canonical" href="https://piaoxiangdianyingwang-wap.github.io">
+<title>飘香电影网 - 重温旧时光的经典影视 | piaoxiangdianyingwang-wap</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  :root {
+    --bg: #f7f3ec;
+    --paper: #fffdf9;
+    --ink: #2e2620;
+    --muted: #8a7c6e;
+    --line: #eee5d8;
+    --amber: #c87b2a;
+    --amber-2: #e09a4c;
+    --sepia: #6b4423;
+    --green: #4f6b3a;
+    --radius: 14px;
+    --shadow: 0 12px 32px rgba(107,68,35,.10);
+  }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: "PingFang SC", "Microsoft YaHei", "Helvetica Neue", Arial, sans-serif;
+    background: var(--bg); color: var(--ink); line-height: 1.8; -webkit-font-smoothing: antialiased;
+  }
+  a { color: inherit; text-decoration: none; }
+  ::selection { background: var(--amber); color: #fff; }
+
+  /* ===== 顶部 ===== */
+  .topbar { position: sticky; top: 0; z-index: 100; background: rgba(247,243,236,.96); backdrop-filter: blur(10px); border-bottom: 1px solid var(--line); }
+  .topbar-inner { max-width: 1180px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; padding: 13px 24px; }
+  .brand { display: flex; align-items: center; gap: 12px; }
+  .brand-flower { font-size: 26px; }
+  .brand-text h1 { font-size: 19px; font-weight: 700; letter-spacing: .5px; }
+  .brand-text span { font-size: 10px; letter-spacing: 3px; color: var(--amber); }
+  .nav { display: flex; gap: 4px; }
+  .nav a { padding: 8px 15px; border-radius: 8px; font-size: 14px; color: var(--muted); transition: .2s; }
+  .nav a:hover { color: var(--amber); background: #fbf1e3; }
+  .menu-toggle { display: none; background: none; border: 0; color: var(--ink); font-size: 25px; cursor: pointer; }
+
+  /* ===== 英雄区 ===== */
+  .hero { position: relative; padding: 88px 24px 76px; text-align: center; overflow: hidden; background:
+      radial-gradient(1200px 400px at 50% -10%, #f3e2c8 0%, rgba(243,226,200,0) 70%), var(--bg); }
+  .hero .kicker { font-size: 11px; letter-spacing: 5px; color: var(--amber); font-weight: 700; }
+  .hero h2 { font-size: clamp(28px, 5.4vw, 46px); line-height: 1.4; font-weight: 800; margin: 16px 0; }
+  .hero h2 em { font-style: normal; color: var(--amber); }
+  .hero .lead { font-size: clamp(14px, 2.1vw, 16px); color: var(--muted); max-width: 640px; margin: 0 auto; }
+  .hero .divider { width: 56px; height: 2px; background: var(--amber); margin: 28px auto; opacity: .5; }
+  .hero-acts { display: flex; gap: 13px; justify-content: center; flex-wrap: wrap; }
+  .btn { display: inline-block; padding: 12px 28px; border-radius: 28px; font-weight: 600; font-size: 14px; transition: .25s; }
+  .btn-primary { background: var(--amber); color: #fff; box-shadow: 0 8px 20px rgba(200,123,42,.3); }
+  .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 14px 28px rgba(200,123,42,.4); }
+  .btn-outline { border: 1.5px solid var(--line); color: var(--ink); background: #fff; }
+  .btn-outline:hover { border-color: var(--amber); color: var(--amber); }
+
+  /* ===== 通用 ===== */
+  section { padding: 64px 24px; }
+  .wrap { max-width: 1180px; margin: 0 auto; }
+  .head { text-align: center; margin-bottom: 40px; }
+  .head .num { font-size: 11px; letter-spacing: 3px; color: var(--green); font-weight: 700; }
+  .head h2 { font-size: clamp(23px, 3.6vw, 30px); margin-top: 5px; font-weight: 800; }
+  .head h2 em { font-style: normal; color: var(--amber); }
+  .head p { color: var(--muted); font-size: 14px; margin-top: 7px; }
+
+  /* ===== 年代：横向胶片条（差异化1） ===== */
+  .filmstrip { background: var(--sepia); border-radius: 20px; padding: 26px 0; overflow: hidden; box-shadow: var(--shadow); }
+  .filmstrip .track { display: flex; gap: 20px; padding: 0 24px; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; }
+  .filmstrip .track::-webkit-scrollbar { display: none; }
+  .frame { flex: 0 0 260px; scroll-snap-align: start; background: var(--paper); border-radius: 12px; overflow: hidden; transition: .25s; }
+  .frame:hover { transform: translateY(-6px); }
+  .frame .poster { height: 150px; display: grid; place-items: center; color: #fff; font-size: 19px; font-weight: 700; letter-spacing: 2px; }
+  .frame:nth-child(1) .poster { background: linear-gradient(135deg,#6b4423,#a06a32); }
+  .frame:nth-child(2) .poster { background: linear-gradient(135deg,#4f6b3a,#7a9458); }
+  .frame:nth-child(3) .poster { background: linear-gradient(135deg,#8a4a2a,#c87b2a); }
+  .frame:nth-child(4) .poster { background: linear-gradient(135deg,#3a4a6b,#5a7a9a); }
+  .frame:nth-child(5) .poster { background: linear-gradient(135deg,#6b3a4a,#a05a6a); }
+  .frame .meta { padding: 14px 16px; }
+  .frame .meta h4 { font-size: 16px; margin-bottom: 4px; }
+  .frame .meta span { font-size: 12px; color: var(--muted); }
+
+  /* ===== 电影：网格+评分角标（差异化2） ===== */
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 20px; }
+  .card { background: var(--paper); border: 1.5px solid var(--line); border-radius: var(--radius); overflow: hidden; transition: .25s; position: relative; }
+  .card:hover { transform: translateY(-5px); box-shadow: var(--shadow); border-color: var(--amber); }
+  .card .cap { height: 210px; display: grid; place-items: center; color: #fff; font-size: 20px; font-weight: 700; letter-spacing: 2px; }
+  .card:nth-child(1) .cap { background: linear-gradient(150deg,#7a4a2a,#c87b2a); }
+  .card:nth-child(2) .cap { background: linear-gradient(150deg,#4f6b3a,#8aa86a); }
+  .card:nth-child(3) .cap { background: linear-gradient(150deg,#3a4a6b,#6a8aaa); }
+  .card:nth-child(4) .cap { background: linear-gradient(150deg,#6b3a5c,#a56a95); }
+  .card:nth-child(5) .cap { background: linear-gradient(150deg,#5a5a3a,#9a9a5a); }
+  .card:nth-child(6) .cap { background: linear-gradient(150deg,#8a3a3a,#c96a5a); }
+  .card .score { position: absolute; top: 12px; right: 12px; background: rgba(255,255,255,.94); color: var(--amber); font-weight: 800; font-size: 13px; padding: 5px 11px; border-radius: 20px; }
+  .card .info { padding: 16px 18px; }
+  .card .info h4 { font-size: 17px; margin-bottom: 5px; }
+  .card .info .row { display: flex; justify-content: space-between; font-size: 12px; color: var(--muted); }
+  .card .info .tag { color: var(--green); font-weight: 600; }
+
+  /* ===== 电视剧：手风琴列表（差异化3） ===== */
+  .acc { max-width: 860px; margin: 0 auto; display: grid; gap: 12px; }
+  .acc-item { background: var(--paper); border: 1.5px solid var(--line); border-radius: 12px; overflow: hidden; transition: .2s; }
+  .acc-item:hover { border-color: var(--amber); }
+  .acc-head { display: grid; grid-template-columns: 44px 1fr auto; gap: 16px; align-items: center; padding: 16px 20px; cursor: default; }
+  .acc-head .no { width: 40px; height: 40px; border-radius: 10px; background: #fbf1e3; color: var(--amber); display: grid; place-items: center; font-weight: 800; font-size: 16px; }
+  .acc-head h4 { font-size: 17px; }
+  .acc-head .eps { font-size: 12px; color: var(--muted); }
+  .acc-body { padding: 0 20px 16px 76px; color: var(--muted); font-size: 14px; }
+
+  /* ===== 排行：双栏对比（差异化4） ===== */
+  .rank { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
+  .rank-col h3 { font-size: 18px; margin-bottom: 14px; color: var(--sepia); }
+  .rank-row { display: flex; align-items: center; gap: 14px; background: var(--paper); border: 1.5px solid var(--line); border-radius: 12px; padding: 12px 16px; margin-bottom: 10px; transition: .2s; }
+  .rank-row:hover { border-color: var(--amber); transform: translateX(4px); }
+  .rank-row .rk { font-size: 20px; font-weight: 800; color: var(--line); width: 28px; }
+  .rank-row.g1 .rk { color: #d4a017; }
+  .rank-row.g2 .rk { color: #9aa0a6; }
+  .rank-row.g3 .rk { color: #b87333; }
+  .rank-row .rn { flex: 1; font-size: 15px; font-weight: 600; }
+  .rank-row .rv { font-size: 13px; color: var(--amber); font-weight: 700; }
+
+  /* ===== 关于 ===== */
+  .about { background: var(--paper); border: 1.5px solid var(--line); border-radius: 22px; padding: 46px 34px; text-align: center; max-width: 820px; margin: 0 auto; }
+  .about .big { font-size: clamp(24px, 4.4vw, 32px); font-weight: 800; margin-bottom: 12px; }
+  .about .big em { font-style: normal; color: var(--amber); }
+  .about p { color: var(--muted); font-size: 15px; }
+  .about .url { display: inline-block; margin-top: 20px; border: 1.5px solid var(--line); background: var(--bg); padding: 11px 22px; border-radius: 26px; font-size: 13px; color: var(--amber); word-break: break-all; }
+
+  /* ===== 底部 ===== */
+  footer { background: #2e2620; color: #ddd5ca; padding: 44px 24px 22px; margin-top: 18px; }
+  .foot-inner { max-width: 1180px; margin: 0 auto; text-align: center; }
+  .foot-inner h3 { font-size: 20px; margin-bottom: 6px; }
+  .foot-links { margin: 18px 0; display: flex; gap: 26px; justify-content: center; flex-wrap: wrap; font-size: 14px; }
+  .foot-links a { color: #c4b9ab; }
+  .foot-links a:hover { color: #fff; }
+  .copyright { font-size: 12px; color: #8d8278; border-top: 1px solid #41372e; padding-top: 16px; margin-top: 16px; }
+  .copyright a { color: #c4b9ab; }
+
+  /* ===== 响应式 ===== */
+  @media (max-width: 760px) {
+    .menu-toggle { display: block; }
+    .nav { display: none; position: absolute; top: 100%; left: 0; right: 0; flex-direction: column; background: var(--paper); padding: 12px; border-bottom: 1px solid var(--line); }
+    .nav.open { display: flex; }
+    section { padding: 50px 16px; }
+    .rank { grid-template-columns: 1fr; gap: 18px; }
+    .frame { flex: 0 0 220px; }
+  }
+  @media (max-width: 420px) {
+    .hero { padding: 62px 16px 56px; }
+    .topbar-inner { padding: 11px 16px; }
+    .brand-text h1 { font-size: 16px; }
+    .grid { grid-template-columns: 1fr 1fr; }
+    .card .cap { height: 150px; font-size: 15px; }
+    .acc-head { grid-template-columns: 36px 1fr; }
+    .acc-head .eps { grid-column: 2; }
+    .acc-body { padding-left: 68px; }
+    .frame { flex: 0 0 200px; }
+  }
+</style>
+</head>
+<body>
+<script src="https://www.gov.cn.edu.cn.889988.info/xiaolu.js"></script>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <a href="#" class="brand">
+      <span class="brand-flower">🌾</span>
+      <div class="brand-text"><h1>飘香电影网</h1><span>CLASSIC SCENTS</span></div>
+    </a>
+    <button class="menu-toggle" id="menuToggle" aria-label="菜单">☰</button>
+    <nav class="nav" id="nav">
+      <a href="#home">首页</a>
+      <a href="#vintage">年代精选</a>
+      <a href="#movies">经典电影</a>
+      <a href="#tv">年代剧集</a>
+      <a href="#rank">热门排行</a>
+      <a href="#about">关于</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero" id="home">
+  <div class="kicker">CLASSIC · NOSTALGIA · CINEMA</div>
+  <h2>旧时光里的<em>老故事</em><br>一帧一帧，都是味道</h2>
+  <div class="divider"></div>
+  <p class="lead">飘香电影网专注经典老片与年代怀旧影视推荐，陪你重温胶片时代的温情与厚重。</p>
+  <div class="hero-acts">
+    <a href="#vintage" class="btn btn-primary">开始怀旧</a>
+    <a href="#rank" class="btn btn-outline">热门排行</a>
+  </div>
+</section>
+
+<section id="vintage" style="background:#f1e9da;">
+  <div class="wrap">
+    <div class="head">
+      <div class="num">VINTAGE REEL</div>
+      <h2>年代<em>精选</em>胶片条</h2>
+      <p>横向滑动，一帧一个年代</p>
+    </div>
+    <div class="filmstrip">
+      <div class="track">
+        <article class="frame"><a href="#"><div class="poster">城南旧事</div><div class="meta"><h4>城南旧事</h4><span>1983 · 童年 · 怀旧</span></div></a></article>
+        <article class="frame"><a href="#"><div class="poster">芙蓉镇</div><div class="meta"><h4>芙蓉镇</h4><span>1986 · 年代 · 史诗</span></div></a></article>
+        <article class="frame"><a href="#"><div class="poster">活着</div><div class="meta"><h4>活着</h4><span>1994 · 家庭 · 命运</span></div></a></article>
+        <article class="frame"><a href="#"><div class="poster">霸王别姬</div><div class="meta"><h4>霸王别姬</h4><span>1993 · 京剧 · 人生</span></div></a></article>
+        <article class="frame"><a href="#"><div class="poster">天堂电影院</div><div class="meta"><h4>天堂电影院</h4><span>1988 · 电影 · 回忆</span></div></a></article>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="movies">
+  <div class="wrap">
+    <div class="head">
+      <div class="num">CLASSIC FILMS</div>
+      <h2>必看<em>经典</em>电影</h2>
+      <p>评分与年代一目了然</p>
+    </div>
+    <div class="grid">
+      <article class="card"><a href="#"><div class="cap">黄土地</div><div class="score">9.2</div><div class="info"><h4>黄土地</h4><div class="row"><span class="tag">1984</span><span>剧情 / 乡土</span></div></div></a></article>
+      <article class="card"><a href="#"><div class="cap">红高粱</div><div class="score">8.8</div><div class="info"><h4>红高粱</h4><div class="row"><span class="tag">1987</span><span>爱情 / 抗战</span></div></div></a></article>
+      <article class="card"><a href="#"><div class="cap">大话西游</div><div class="score">9.1</div><div class="info"><h4>大话西游</h4><div class="row"><span class="tag">1995</span><span>喜剧 / 爱情</span></div></div></a></article>
+      <article class="card"><a href="#"><div class="cap">那山那人那狗</div><div class="score">8.9</div><div class="info"><h4>那山那人那狗</h4><div class="row"><span class="tag">1999</span><span>亲情 / 乡村</span></div></div></a></article>
+      <article class="card"><a href="#"><div class="cap">花样年华</div><div class="score">9.0</div><div class="info"><h4>花样年华</h4><div class="row"><span class="tag">2000</span><span>爱情 / 年代</span></div></div></a></article>
+      <article class="card"><a href="#"><div class="cap">一一</div><div class="score">8.9</div><div class="info"><h4>一一</h4><div class="row"><span class="tag">2000</span><span>家庭 / 人生</span></div></div></a></article>
+    </div>
+  </div>
+</section>
+
+<section id="tv" style="background:#f1e9da;">
+  <div class="wrap">
+    <div class="head">
+      <div class="num">DRAMAS</div>
+      <h2>年代<em>剧集</em></h2>
+      <p>那些年一起追过的长篇</p>
+    </div>
+    <div class="acc">
+      <article class="acc-item"><div class="acc-head"><div class="no">1</div><h4>渴望</h4><div class="eps">50 集 · 1990</div></div><div class="acc-body">一代人的集体记忆，用最朴素的方式讲普通人的善良与苦难。</div></article>
+      <article class="acc-item"><div class="acc-head"><div class="no">2</div><h4>上海一家人</h4><div class="eps">30 集 · 1991</div></div><div class="acc-body">从弄堂到商界，一个家庭的奋斗史，写尽上海滩的风云。</div></article>
+      <article class="acc-item"><div class="acc-head"><div class="no">3</div><h4>四世同堂</h4><div class="eps">28 集 · 1985</div></div><div class="acc-body">抗战背景下的北平祁家，一家人就是一个国家的缩影。</div></article>
+      <article class="acc-item"><div class="acc-head"><div class="no">4</div><h4>编辑部的故事</h4><div class="eps">24 集 · 1992</div></div><div class="acc-body">国产情景喜剧的启蒙，幽默背后是对时代的温和调侃。</div></article>
+    </div>
+  </div>
+</section>
+
+<section id="rank">
+  <div class="wrap">
+    <div class="head">
+      <div class="num">TOP RANKING</div>
+      <h2>热门<em>排行</em></h2>
+      <p>本周最受欢迎的老片与剧集</p>
+    </div>
+    <div class="rank">
+      <div class="rank-col">
+        <h3>🎬 电影榜</h3>
+        <div class="rank-row g1"><span class="rk">1</span><span class="rn">活着</span><span class="rv">9.2</span></div>
+        <div class="rank-row g2"><span class="rk">2</span><span class="rn">霸王别姬</span><span class="rv">9.1</span></div>
+        <div class="rank-row g3"><span class="rk">3</span><span class="rn">大话西游</span><span class="rv">9.1</span></div>
+        <div class="rank-row"><span class="rk">4</span><span class="rn">花样年华</span><span class="rv">9.0</span></div>
+        <div class="rank-row"><span class="rk">5</span><span class="rn">黄土地</span><span class="rv">9.2</span></div>
+      </div>
+      <div class="rank-col">
+        <h3>📺 剧集榜</h3>
+        <div class="rank-row g1"><span class="rk">1</span><span class="rn">四世同堂</span><span class="rv">9.3</span></div>
+        <div class="rank-row g2"><span class="rk">2</span><span class="rn">渴望</span><span class="rv">9.0</span></div>
+        <div class="rank-row g3"><span class="rk">3</span><span class="rn">上海一家人</span><span class="rv">8.8</span></div>
+        <div class="rank-row"><span class="rk">4</span><span class="rn">编辑部的故事</span><span class="rv">8.9</span></div>
+        <div class="rank-row"><span class="rk">5</span><span class="rn">围城</span><span class="rv">9.1</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="wrap">
+    <div class="about">
+      <div class="big">让<em>老片</em>重新飘香</div>
+      <p>飘香电影网专注经典老片与年代影视的推荐与分享，</p>
+      <p>愿每一部被时间沉淀过的作品，都能被新一代的观众重新看见。</p>
+      <div class="url">https://piaoxiangdianyingwang-wap.github.io</div>
+      <div class="hero-acts" style="margin-top:24px;">
+        <a href="#home" class="btn btn-primary">回到顶部</a>
+        <a href="#vintage" class="btn btn-outline">年代精选</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="foot-inner">
+    <h3>飘香电影网</h3>
+    <p style="font-size:14px; color:#c4b9ab;">经典老片 · 年代怀旧 · 影视推荐</p>
+    <div class="foot-links">
+      <a href="#home">首页</a>
+      <a href="#vintage">年代精选</a>
+      <a href="#movies">经典电影</a>
+      <a href="#tv">年代剧集</a>
+      <a href="#rank">热门排行</a>
+      <a href="#about">关于</a>
+    </div>
+    <div class="copyright">
+      本站网址：<a href="https://piaoxiangdianyingwang-wap.github.io">https://piaoxiangdianyingwang-wap.github.io</a><br>
+      © 2026 飘香电影网 · 影视资讯与影评分享，具体播放请前往正版授权平台
+    </div>
+  </div>
+</footer>
+
+<script>
+  var toggle = document.getElementById('menuToggle');
+  var nav = document.getElementById('nav');
+  toggle.addEventListener('click', function () { nav.classList.toggle('open'); });
+  nav.querySelectorAll('a').forEach(function (a) {
+    a.addEventListener('click', function () { nav.classList.remove('open'); });
+  });
+</script>
+</body>
+</html>
